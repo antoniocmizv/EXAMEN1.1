@@ -8,31 +8,57 @@
 </head>
 <body>
     <div class="game-container">
-        <button id="resetButton">Reset Game</button>
+        <div class="header">
+            <button id="resetButton">Reset Game</button>
+            <div class="instructions">
+                <p>🎮 Arrastra las cartas a su palo correspondiente</p>
+            </div>
+        </div>
         
         <div class="game-area">
-            <div id="deck" class="card-container">
-                <!-- Cards will be added here -->
+            <div class="deck-area">
+                <h3>Mazo</h3>
+                <div id="deck" class="card-container">
+                    <!-- Cards will be added here -->
+                </div>
             </div>
 
             <div class="suit-containers">
-                <div id="hearts" class="card-container" data-accept-suit="hearts">
-                    <div class="placeholder">♥</div>
+                <div class="suit-column">
+                    <div class="suit-label">♥ Corazones</div>
+                    <div id="hearts" class="card-container" data-accept-suit="hearts">
+                        <div class="placeholder">♥</div>
+                    </div>
                 </div>
-                <div id="diamonds" class="card-container" data-accept-suit="diamonds">
-                    <div class="placeholder">♦</div>
+                <div class="suit-column">
+                    <div class="suit-label">♦ Diamantes</div>
+                    <div id="diamonds" class="card-container" data-accept-suit="diamonds">
+                        <div class="placeholder">♦</div>
+                    </div>
                 </div>
-                <div id="clubs" class="card-container" data-accept-suit="clubs">
-                    <div class="placeholder">♣</div>
+                <div class="suit-column">
+                    <div class="suit-label">♣ Tréboles</div>
+                    <div id="clubs" class="card-container" data-accept-suit="clubs">
+                        <div class="placeholder">♣</div>
+                    </div>
                 </div>
-                <div id="spades" class="card-container" data-accept-suit="spades">
-                    <div class="placeholder">♠</div>
+                <div class="suit-column">
+                    <div class="suit-label">♠ Picas</div>
+                    <div id="spades" class="card-container" data-accept-suit="spades">
+                        <div class="placeholder">♠</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="game.js"></script>
-    <script>
+
+    <!-- Alert container -->
+    <div id="alert" class="alert">
+        <span class="alert-message"></span>
+    </div>
+
+    <script type="module">
+        import { GameManager } from './src/managers/GameManager.js';
         new GameManager();
     </script>
 </body>

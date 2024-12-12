@@ -15,7 +15,6 @@ let gameState = {
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
 
 // Get current game state
 app.get('/api/state', (req, res) => {

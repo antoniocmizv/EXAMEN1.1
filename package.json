@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "examen1.1": "file:",
     "express": "^4.21.2"
   }
 }
