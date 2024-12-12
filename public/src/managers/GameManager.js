@@ -1,9 +1,10 @@
-// GameManager.js
+// Importar las clases necesarias
 import { Card } from '../models/Card.js';
 import { DragAndDropManager } from '../dragItems/DragAndDropManager.js';
 
 export class GameManager {
     constructor(apiUrl = 'http://localhost:3000/api') {
+        // Inicializar propiedades
         this.apiUrl = apiUrl;
         this.dragAndDropManager = new DragAndDropManager(() => this.saveGameState());
         this.initializeGame();
@@ -12,10 +13,12 @@ export class GameManager {
 
     async initializeGame() {
         try {
+            // Intentar cargar el estado del juego desde la API
             const response = await fetch(`${this.apiUrl}/state`);
             const state = await response.json();
             this.renderGameState(state);
         } catch (error) {
+            // Si hay un error, reiniciar el juego
             console.error('Error loading game state:', error);
             await this.resetGame();
         }
@@ -23,6 +26,7 @@ export class GameManager {
 
     async resetGame() {
         try {
+            // Reiniciar el estado del juego a través de la API
             const response = await fetch(`${this.apiUrl}/reset`, { method: 'POST' });
             const state = await response.json();
             this.renderGameState(state);
@@ -32,6 +36,7 @@ export class GameManager {
     }
 
     async saveGameState() {
+        // Obtener el estado actual del juego
         const state = {
             deck: this.getCardsFromContainer('deck'),
             hearts: this.getCardsFromContainer('hearts'),
@@ -41,6 +46,7 @@ export class GameManager {
         };
 
         try {
+            // Guardar el estado del juego a través de la API
             await fetch(`${this.apiUrl}/state`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -52,6 +58,7 @@ export class GameManager {
     }
 
     getCardsFromContainer(containerId) {
+        // Obtener las cartas de un contenedor específico
         const container = document.getElementById(containerId);
         const cards = [];
         container.querySelectorAll('.card').forEach(cardElement => {
@@ -64,6 +71,7 @@ export class GameManager {
     }
 
     renderGameState(state) {
+        // Renderizar el estado del juego en la interfaz de usuario
         Object.entries(state).forEach(([containerId, cards]) => {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
@@ -76,6 +84,7 @@ export class GameManager {
     }
 
     setupEventListeners() {
+        // Configurar los event listeners
         document.getElementById('resetButton').addEventListener('click', () => this.resetGame());
         this.dragAndDropManager.setupDragAndDrop();
     }

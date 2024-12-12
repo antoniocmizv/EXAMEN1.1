@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="game-container">
+        <!-- Encabezado del juego -->
         <div class="header">
             <button id="resetButton">Reset Game</button>
             <div class="instructions">
@@ -15,11 +16,12 @@
             </div>
         </div>
         
+        <!-- Área principal del juego -->
         <div class="game-area">
             <div class="deck-area">
                 <h3>Mazo</h3>
                 <div id="deck" class="card-container">
-                    <!-- Cards will be added here -->
+                    <!-- Las cartas se agregarán aquí -->
                 </div>
             </div>
 
@@ -52,11 +54,12 @@
         </div>
     </div>
 
-    <!-- Alert container -->
+    <!-- Contenedor de alertas -->
     <div id="alert" class="alert">
         <span class="alert-message"></span>
     </div>
 
+    <!-- Script principal del juego -->
     <script type="module">
         import { GameManager } from './src/managers/GameManager.js';
         new GameManager();

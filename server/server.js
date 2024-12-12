@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// In-memory storage for card state
+// Almacenamiento en memoria para el estado del juego
 let gameState = {
   deck: [],
   hearts: [],
@@ -16,18 +16,18 @@ let gameState = {
 app.use(cors());
 app.use(express.json());
 
-// Get current game state
+// Obtener el estado actual del juego
 app.get('/api/state', (req, res) => {
   res.json(gameState);
 });
 
-// Update game state
+// Actualizar el estado del juego
 app.post('/api/state', (req, res) => {
   gameState = req.body;
   res.json({ success: true });
 });
 
-// Reset game state
+// Reiniciar el estado del juego
 app.post('/api/reset', (req, res) => {
   gameState = {
     deck: generateDeck(),
@@ -39,6 +39,7 @@ app.post('/api/reset', (req, res) => {
   res.json(gameState);
 });
 
+// Función para generar una baraja de cartas
 function generateDeck() {
   const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
   const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -50,7 +51,7 @@ function generateDeck() {
     }
   }
 
-  // Shuffle deck
+  // Barajar la baraja
   for (let i = deck.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [deck[i], deck[j]] = [deck[j], deck[i]];
@@ -59,6 +60,7 @@ function generateDeck() {
   return deck;
 }
 
+// Iniciar el servidor
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

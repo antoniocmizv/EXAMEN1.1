@@ -1,10 +1,13 @@
 import { Card } from '../models/Card.js';
+
 export class DragAndDropManager {
     constructor(saveGameStateCallback) {
+        // Inicializar la callback para guardar el estado del juego
         this.saveGameState = saveGameStateCallback;
     }
 
     setupDragAndDrop() {
+        // Configurar eventos de arrastrar y soltar para las cartas y contenedores
         const cards = document.querySelectorAll('.card');
         const containers = document.querySelectorAll('.card-container');
 
@@ -20,6 +23,7 @@ export class DragAndDropManager {
     }
 
     handleDragStart(e) {
+        // Manejar el inicio del arrastre de una carta
         e.dataTransfer.setData('text/plain', JSON.stringify({
             suit: e.target.dataset.suit,
             value: e.target.dataset.value
@@ -27,10 +31,12 @@ export class DragAndDropManager {
     }
 
     handleDragOver(e) {
+        // Permitir que el contenedor acepte el arrastre
         e.preventDefault();
     }
 
     handleDrop(e) {
+        // Manejar el evento de soltar una carta en un contenedor
         e.preventDefault();
         const cardData = JSON.parse(e.dataTransfer.getData('text/plain'));
         const targetContainer = e.target.closest('.card-container');
@@ -52,6 +58,7 @@ export class DragAndDropManager {
     }
 
     showAlert(message) {
+        // Mostrar una alerta con un mensaje específico
         const alert = document.getElementById('alert');
         alert.querySelector('.alert-message').textContent = message;
         alert.classList.add('show-alert');
@@ -61,6 +68,7 @@ export class DragAndDropManager {
     }
 
     getSuitName(suit) {
+        // Obtener el nombre del palo en español
         const suitNames = {
             'hearts': 'corazones',
             'diamonds': 'diamantes',

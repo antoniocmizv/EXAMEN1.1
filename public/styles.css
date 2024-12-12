@@ -1,3 +1,4 @@
+/* Estilos generales para el cuerpo de la página */
 body {
     margin: 0;
     padding: 0;
@@ -6,12 +7,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Contenedor principal del juego */
 .game-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Estilos para el encabezado */
 .header {
     display: flex;
     justify-content: space-between;
@@ -23,6 +26,7 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Estilos para las instrucciones */
 .instructions {
     color: #333;
 }
@@ -31,12 +35,14 @@ body {
     margin: 5px 0;
 }
 
+/* Área principal del juego */
 .game-area {
     display: flex;
     gap: 40px;
     margin-top: 20px;
 }
 
+/* Área del mazo */
 .deck-area {
     flex: 1;
 }
@@ -50,6 +56,7 @@ body {
     border-radius: 5px;
 }
 
+/* Columnas para los palos */
 .suit-column {
     display: flex;
     flex-direction: column;
@@ -57,6 +64,7 @@ body {
     gap: 10px;
 }
 
+/* Etiquetas para los palos */
 .suit-label {
     font-size: 1.2em;
     color: #333;
@@ -66,6 +74,7 @@ body {
     text-align: center;
 }
 
+/* Contenedores de cartas */
 .card-container {
     min-width: 120px;
     min-height: 180px;
@@ -80,6 +89,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para las cartas */
 .card {
     width: 100px;
     height: 150px;
@@ -103,15 +113,18 @@ body {
     box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
 }
 
+/* Valor de la carta */
 .card-value {
     font-size: 24px;
     font-weight: bold;
 }
 
+/* Palo de la carta */
 .card-suit {
     font-size: 36px;
 }
 
+/* Colores para los palos */
 .hearts, .diamonds {
     color: #FF0000;
 }
@@ -120,12 +133,14 @@ body {
     color: #000000;
 }
 
+/* Contenedores para los palos */
 .suit-containers {
     display: flex;
     gap: 20px;
     flex: 2;
 }
 
+/* Placeholder para los contenedores vacíos */
 .placeholder {
     font-size: 72px;
     color: rgba(255, 255, 255, 0.5);
@@ -136,6 +151,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Botón de reinicio */
 #resetButton {
     padding: 10px 20px;
     font-size: 16px;
@@ -154,6 +170,7 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* Botón para devolver la carta al mazo */
 .return-to-deck {
     position: absolute;
     top: 5px;
@@ -175,7 +192,7 @@ body {
     opacity: 1;
 }
 
-/* Alert styles */
+/* Estilos para las alertas */
 .alert {
     display: none;
     position: fixed;
