@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <button id="resetButton">Reset Game</button>
+        
+        <div class="game-area">
+            <div id="deck" class="card-container">
+                <!-- Cards will be added here -->
+            </div>
+
+            <div class="suit-containers">
+                <div id="hearts" class="card-container" data-accept-suit="hearts">
+                    <div class="placeholder">♥</div>
+                </div>
+                <div id="diamonds" class="card-container" data-accept-suit="diamonds">
+                    <div class="placeholder">♦</div>
+                </div>
+                <div id="clubs" class="card-container" data-accept-suit="clubs">
+                    <div class="placeholder">♣</div>
+                </div>
+                <div id="spades" class="card-container" data-accept-suit="spades">
+                    <div class="placeholder">♠</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+    <script>
+        new GameManager();
+    </script>
+</body>
+</html>
